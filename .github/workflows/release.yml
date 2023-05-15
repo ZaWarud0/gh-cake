@@ -23,12 +23,10 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Print Git User Info
+      - name: Print Git user info
         run: |
-          git config --global user.name
-          git config --global user.email
-          git config user.username
-          git config user.email
+          echo "Git user.name: $(git config --get user.name)"
+          echo "Git user.email: $(git config --get user.email)"
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
