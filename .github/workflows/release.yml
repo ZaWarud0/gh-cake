@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Echo git user
-        run: echo $(git config user.name)
+        run: echo $GIT_USER
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
