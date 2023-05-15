@@ -2,12 +2,7 @@
   "name": "gh-release-publish-test-1",
   "version": "0.0.3",
   "description": "",
-  "private": false,
   "main": "index.js",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
   "scripts": {
     "start": "node index.js",
     "release": "changeset publish",
