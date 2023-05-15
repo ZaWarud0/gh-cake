@@ -23,16 +23,6 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: "Set git user info"
-        run: |
-          git config --global user.email "faithfulorder@gmail.com"
-          git config --global user.name "ZaWarud0"
-
-      - name: Print git user info
-        run: |
-          echo "Git user.name: $(git config --get user.name)"
-          echo "Git user.email: $(git config --get user.email)"
-
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1

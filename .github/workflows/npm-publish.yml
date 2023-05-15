@@ -26,25 +26,15 @@ jobs:
           node-version: 16
           registry-url: https://registry.npmjs.org/
 
-      - name: "Set git user info"
-        run: |
-          git config --global user.email "faithfulorder@gmail.com"
-          git config --global user.name "ZaWarud0"
-
-      - name: Print git user info
-        run: |
-          echo "Git user.name: $(git config --get user.name)"
-          echo "Git user.email: $(git config --get user.email)"
-
       - name: Set npm values
         run: |
-          echo "//registry.npmjs.org/:_authToken=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" > .npmrc
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
           echo "registry=https://registry.npmjs.org/" >> .npmrc
           npm config set always-auth true
-          npm config set _auth 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
+          npm config set _auth ${{ secrets.NPM_TOKEN }}
           npm config set email faithfulorder@gmail.com
 
       - run: npm ci
       - run: npm publish --registry=https://registry.npmjs.org/ --access public
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
