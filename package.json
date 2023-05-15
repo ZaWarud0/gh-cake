@@ -2,6 +2,7 @@
   "name": "gh-release-publish-test",
   "version": "0.0.2",
   "description": "",
+  "private": false,
   "main": "index.js",
   "publishConfig": {
     "access": "public",
